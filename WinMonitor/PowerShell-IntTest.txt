@@ -1,0 +1,23 @@
+$pipeClient = New-Object System.IO.Pipes.NamedPipeClientStream(".", "MonitorPipe", [System.IO.Pipes.PipeDirection]::Out)
+$pipeClient.Connect()
+$sw = New-Object System.IO.StreamWriter($pipeClient)
+$sw.AutoFlush = $true
+$sw.WriteLine("LoggerInfo **#** This Should Be BLUE")
+$sw.WriteLine("LoggerError **#** This Should Be RED")
+$sw.WriteLine("LoggerEvent **#** This Should Be YELLOW")
+# Add more commands here...
+# Remember to close the stream when you're done sending commands
+$sw.Close()
+$pipeClient.Close()
+
+$pipeClient = New-Object System.IO.Pipes.NamedPipeClientStream(".", "MonitorPipe", [System.IO.Pipes.PipeDirection]::Out)
+$pipeClient.Connect()
+$sw = New-Object System.IO.StreamWriter($pipeClient)
+$sw.AutoFlush = $true
+$sw.WriteLine("LoggerInfo **#** Flushing System")
+$sw.WriteLine("Flursh **#** Flushing")
+# Add more commands here...
+# Remember to close the stream when you're done sending commands
+$sw.Close()
+$pipeClient.Close()
+
