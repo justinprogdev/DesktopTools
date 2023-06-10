@@ -19,7 +19,7 @@ namespace WinMonitor.View
         {
 
             IMonitorController monitorController = new MonitorController();
-
+            Print.Blue("Now monitoring for WinLogger Commands");
             monitorController.RunMonitorLoop();
             
         }

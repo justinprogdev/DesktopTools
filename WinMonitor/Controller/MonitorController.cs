@@ -24,7 +24,6 @@ namespace WinMonitor.Controller
         {
             using (NamedPipeServerStream pipeServer = new NamedPipeServerStream("MonitorPipe", PipeDirection.In))
             {
-                Print.Blue("Now monitoring for WinLogger Commands");
                 pipeServer.WaitForConnection();
                 using (StreamReader sr = new StreamReader(pipeServer))
                 {
