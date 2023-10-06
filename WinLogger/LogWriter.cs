@@ -15,6 +15,7 @@ namespace WinLogger
             var pipe = new NamedPipeClientStream(".", "MonitorPipe", PipeDirection.Out);
             _pipeClient = pipe;
             _pipeClient.Connect();
+
         }
 
         public void WriteToPipeClient(LoggerOption loggerOption, string value)
