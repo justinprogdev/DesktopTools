@@ -1,3 +1,4 @@
+# These commands are for testing in powershell when the monitor is running
 $pipeClient = New-Object System.IO.Pipes.NamedPipeClientStream(".", "MonitorPipe", [System.IO.Pipes.PipeDirection]::Out)
 $pipeClient.Connect()
 $sw = New-Object System.IO.StreamWriter($pipeClient)
